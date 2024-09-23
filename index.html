@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+<style>
+    *{
+    font-family: Roboto;
+   
+    
+}
+
+
+.flip-card {
+    width: 100%;
+    height:250px;
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    margin-top: 7%;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   background-color: white;
+   color:black;
+
+
+
+}
+
+.card-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    padding:2%;
+}
+
+.flip-card-back {
+   
+    transform: rotateY(180deg);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: whitesmoke;
+
+}
+
+.flip-card-back h3 {
+    margin-top: 0;
+
+}
+
+nav a{
+font-size:20px;
+}
+.backgroundimageContainer{
+    background: url("https://res.cloudinary.com/dcyd67xgz/image/upload/v1704114710/bg_v9o21a.jpg");
+    height:75vh;
+    background-size: cover;
+}
+.name{
+    background-color: whitesmoke ;
+    border-radius: 25px;
+    position: absolute;
+    width: 60%;
+    height: 300px;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background: rgb(0, 0, 0); 
+    background: rgba(243, 242, 242, 0.221);
+    color: white;
+    
+}
+.name h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+.card{
+    border-radius: 20px;
+    /* background-color: #A5DEF2; */
+    /* background: linear-gradient(to bottom,#A5DEF2,#5BAEB7); */
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.149);
+
+    /* box-shadow:5px 5px  #A5DEF2; */
+   width: 300px;
+
+
+}
+
+.headingsection{
+    text-align: center;
+    text-decoration: underline;
+    background-color: rgba(14, 41, 43, 0.073);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+
+
+
+}
+.parasection{
+    text-align: center;
+   
+}
+.para{
+    font-size: 20px;
+}
+.containersection{
+    padding: 2%;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    /* border-width:4px ;
+    border-style: solid; */
+    /* border-color:rgba(6, 205, 255, 0.99); */
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.149);
+
+}
+.imagesection{
+    text-align: center;
+
+}
+.imagesection img{
+    height:100px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+
+.containersection p{
+    font-size:20px;
+    
+}
+
+.webandtechnologysection{
+/* background: linear-gradient(to bottom,rgba(206, 82, 102, 0.631),rgba(232, 62, 172, 0.386),rgba(255, 192, 203, 0.523)); */
+/* background: linear-gradient(to bottom,rgba(254, 2, 78, 0.31),rgba(2, 181, 252, 0.259)); */
+background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+margin: 10px;
+padding: 20px;
+border-radius: 25px;
+
+}
+.skillscard{
+    width: 100%;
+    margin: 5px;
+    padding: 3%;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.149);
+
+}
+
+.skillscard h3{
+    color:rgba(4, 165, 252, 0.992)
+}
+.plcard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 3%;
+    color: darkblue;
+    margin: 5%;
+}
+.plcard:hover{
+    background-color:pink;
+}
+.experiencesection{
+    padding: 2%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #fea704fb;
+
+
+}
+.experiencesection:hover{
+    background-color: #ffcd707b;
+
+}
+.picture{
+    width: 100%;
+    background-image: url("https://res.cloudinary.com/dcyd67xgz/image/upload/v1704264383/es_bmwuw4.jpg");
+  background-size: cover; 
+  height: 60vh;   
+}
+.projectssection{
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 3px;
+    margin:5px;
+    padding: 3%;
+    border-color: #01b2f8fc;
+    color:rgba(0, 0, 0, 0.534)
+}
+.contactsection{
+    background-color: #111;
+    color:whitesmoke;
+    text-align: center;
+    justify-content: center;
+    padding: 2%;
+    color:gold;
+}
+.contactsection a{
+    color:gold;
+}
+.section{
+    text-align: center;
+}
+
+.sidenav {
+  height: 100%;
+  width: 220px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  color: whitesmoke;
+}
+.sidenav h5{
+    padding: 3%;
+    font-weight: bold;
+}
+.sidenav h4{
+    padding: 3%;
+    font-weight: bold;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+
+  display: block;
+}
+
+.sidenav a:hover {
+    color: gold;
+
+}
+
+.main {
+  margin-left: 220px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 20px;}
+}
+hr.line{
+    border-top: 1px solid whitesmoke;
+
+}
+
+</style>  
+</head>
+<body>
+
+   <div class="main1 d-lg-block d-xl-block d-md-none  d-sm-none d-none">
+
+      <div class="sidenav">
+        <div class="section">
+        <h4>Kevin Li</h4>
+    <h5>Michigan Technological University</h5>
+    </div>
+    <hr class="line">
+        <a href="#">Home</a>
+        <a href="#aboutMe">About Me</a>
+        <a href="#myExperience">Experience</a>
+        <a href="#myProjects">Projects</a>
+        <a href="#contactMe">Contact Me</a>
+    </div>
+<div class="main">
+      <div class="backgroundimageContainer d-flex flex-column justify-content-center">
+        <div class="text-center">
+            <div class="name d-flex flex-column justify-content-center">
+                <div class="text-center">
+                <h1>Kevin Li</h1>
+            </div>
+            </div>
+      </div>
+    </div>
+    <br/>
+    <div class="container col-12" id="aboutMe">
+        <h6 style="color: rgba(128, 128, 128, 0.975);">WHO AM I?</h6>
+    </div>
+    <div class="container col-12">
+        <h3>About Me</h3>
+    </div>
+    
+    <div class="container col-12">
+        <p class="para">Hello, my name is Kevin. I am currently a first-year graduate student studying Mechanical Engineering at Michigan Technological University, and I plan on graduating early in May 2025. I am also a Graduate Research Assistant at Michigan Tech. I have always had a keen interest in Robotics, Autonomous Vehicles, Machine Learning, and Deep Learning. So, during the school year, I have been joining many clubs, learning new things, and working on various projects. I am also trying to solve NeetCode problems and post content related to learning coding on LinkedIn.</p>
+    </div>
+    <br/>
+
+    <div class="container-fluid ">
+        <div class="containersection col-12">
+            <div class="text-center">
+        <p >I am a motivational, passionate, and proactive person. Over the next year, I am looking forward to learning a foreign language (Spanish) and American and I love playing basketball. I hope we can connect and appreciate your time and consideration. Thank you for taking the time to review my resume/website.<p>
+        </div>
+    </div>
+    </div>
+    <br/>
+   
+    <div class="container col-12" >
+        <h6 style="color: rgba(128, 128, 128, 0.975);">WHAT I DO</h6>
+
+    </div>
+    <div class="container col-12">
+        <h3>My Skills</h3>
+    </div>
+    <br/>
+    <div class="myskillssection">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-3">
+                <div class="skillscard " style="box-shadow: 3px 3px 5px 5px rgba(235, 163, 8, 0.659);">
+                    <div class="text-center">
+                    <h3>Communication Skills</h3>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3">
+                <div class="skillscard " style="box-shadow: 3px 3px 5px 5px rgba(209, 8, 235, 0.564);">
+                    <div class="text-center">
+                    <h3>Leadership Skills</h3>
+                </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="skillscard " style="box-shadow: 3px 3px  5px 5px rgba(75, 228, 15, 0.561);">
+                    <div class="text-center">
+                    <h3>Time-Management Skills</h3>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3">
+                <div class="skillscard " style="box-shadow: 3px 3px 5px 5px rgba(235, 8, 61, 0.725)">
+                    <div class="text-center">
+                    <h3>Presentation Skills</h3>
+                </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <br/>
+    <!-- <div class="container col-12">
+        <h3>Techical Skills</h3>
+    </div> -->
+
+    <div class="container col-12">
+        <h6 style="color: rgba(128, 128, 128, 0.975);">WHAT I USE</h6>
+    </div>
+    
+    <div class="container col-12 ">
+        <h3 >Software & Web Technology</h3>
+    </div>
+
+        <div class="webandtechnologysection">
+        <div class="container-fluid">
+            <div class="row">
+             
+                <div class="col-12 col-lg-3 ">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="d-flex flex-column">
+                                    <div class="imagesection">
+                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704098842/pycharm_o71k5w.jpg" class="image"/>
+                                    </div>
+                                    <div class="headingsection">
+                                        <h3>pycharm</h3>
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="parasection">
+                                    <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+          
+
+                <div class="col-12 col-lg-3 ">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="d-flex flex-column">
+                                    <div class="imagesection">
+                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704101559/gb_khqaro.png" class="image"/>
+                                    </div>
+                                    <div class="headingsection">
+                                        <h3>GitHub</h3>
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="parasection">
+                                    <h5>Used Github for several projects to upload my work and also did some workshops.</h5>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <div class="col-12 col-lg-3 ">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="d-flex flex-column">
+                                    <div class="imagesection">
+                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704101962/tb_bxbxg0.png" class="image"/>
+                                    </div>
+                                    <div class="headingsection">
+                                        <h3>Tableau</h3>
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="parasection">
+                                    <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <div class="col-12 col-lg-3 ">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="d-flex flex-column">
+                                    <div class="imagesection">
+                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704102077/ms_kh8nvu.png" class="image"/>
+                                    </div>
+                                    <div class="headingsection">
+                                        <h3>MySQL</h3>
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="parasection">
+                                    <h5>Used for classwork and personal projects. </h5>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3 ">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="d-flex flex-column">
+                                        <div class="imagesection">
+                                            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704102686/an_lca3ik.png" class="image"/>
+                                        </div>
+                                        <div class="headingsection">
+                                            <h3>Anaconda</h3>
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="parasection">
+                                        <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                    </div> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                <div class="col-12 col-lg-3 ">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="d-flex flex-column">
+                                    <div class="imagesection">
+                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704102817/co_ietjwj.png" class="image"/>
+                                    </div>
+                                    <div class="headingsection">
+                                        <h3>Colab</h3>
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="parasection">
+                                    <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-3 ">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="d-flex flex-column">
+                                        <div class="imagesection">
+                                            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704102921/qt_dtapsk.jpg" class="image"/>
+                                        </div>
+                                        <div class="headingsection">
+                                            <h3>Qtcreator</h3>
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="parasection">
+                                        <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                    </div> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+            
+<div class="col-12 col-lg-3 ">
+<div class="flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="d-flex flex-column">
+<div class="imagesection">
+<img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704257624/rs_tuhjgs.jpg" class="image"/>
+</div>
+<div class="headingsection">
+<h3>R/R Studio</h3>
+</div>
+</div>
+</div>
+<div class="flip-card-back">
+<div class="parasection">
+<h5>Used for classwork and personal projects and did some work related to regression analysis.</h5>
+</div> 
+</div>
+</div>
+</div>
+</div>
+
+        
+<div class="col-12 col-lg-3 ">
+    <div class="flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<div class="d-flex flex-column">
+    <div class="imagesection">
+        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704257771/htcss_wdclor.png" class="image"/>
+    </div>
+    <div class="headingsection">
+    <h3>HTML/CSS</h3>
+</div>
+</div>
+</div>
+<div class="flip-card-back">
+<div class="parasection">
+<h5>I Self-taught and started making my websites basic.</h5>
+</div> 
+</div>
+</div>
+</div>
+</div>
+    
+<div class="col-12 col-lg-3 ">
+    <div class="flip-card"> 
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <div class="d-flex flex-column">
+            <div class="imagesection">
+            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704258050/gd_qyozyw.jpg" class="image"/>
+            </div>
+            <div class="headingsection">
+                <h3>Google Slides/Google Docs/Google Slides</h3>
+            </div>
+            </div>
+        </div>
+    <div class="flip-card-back">
+        <div class="parasection">
+            <h5>Currently interacting with multiple clubs using Google Suites, with shared drive, spreadsheet, documents, and forms, and making documents on Google Docs and preparing presentation slides on Google Slides.</h5>
+        </div> 
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br/>
+<div class="container col-12">
+    <h3>Programming Languages</h3>
+</div>
+<br/>
+     <div class="programminglanguagessection">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>C Language</h3>
+            </div>
+        </div>
+        </div> 
+       
+       
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>C++ Language</h3>
+            </div>
+        </div>
+        </div> 
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>Python Language</h3>
+            </div>
+        </div>
+        </div> 
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>R Language</h3>
+            </div>
+        </div>
+        </div> 
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>SQL</h3>
+            </div>
+        </div>
+        </div> 
+
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>Java Language</h3>
+            </div>
+        </div>
+        </div> 
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>Matlab </h3>
+            </div>
+        </div>
+        </div>   
+       </div>
+    </div>
+</div>
+ <br/>
+<div class="container col-12">
+    <h3>Favourite Quote</h3>
+</div>
+<br/>
+    <div class="picture">
+        <!-- <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704264383/es_bmwuw4.jpg"/> -->
+</div>
+ <br/>
+ <div class="container col-12" id="myExperience">
+    <h6 style="color: rgba(128, 128, 128, 0.975);">PREVIOUS EXPERIENCE</h6>
+</div>
+ <div class="container col-12" >
+    <h3>Experience</h3>
+ </div>
+ <div class="experiencesection">
+
+    <div class="container-fluid">
+            <h3>Marangoni Surfer - Bio Inspired Design </h3>
+            <h4 >Project Manager Janurary 2023 - August 2023</h4>
+             <h5>   *Developed and delivered bio-inspired robotic surfer using Arduino, C++, and Python to inspire STEM interest. 
+                <br/>
+                *Designed and executed robotics projects, fostering hands-on learning experiences. 
+                <br/>
+                *Instructed programming concepts and techniques to a diverse team of 10. 
+                <br/>
+                *Led development of bio-inspired robotic surfer, resulting in a 90% increase in team efficiency.
+                </h5>
+    </div>
+</div>
+<br/>
+<div class="container col-12" id="myProjects">
+    <h3>Projects</h3>
+</div>
+<br/>
+<div class="projectssection">
+    <div class="container-fluid">
+        
+           <h3> 1. Robotic Arm – AI ML & DL. </h3>
+             <h5>*Built a robotic arm to help people pick objects in shopping malls, warehouses, and various industries.  
+             <br/>*Designed the arm, built a CNN model, and programmed for mechanical movement. 
+            <br/>*Developed arm with rover structure, and used IOT and AI & ML, trained on various data sets. 
+            <br/>*Successfully built a fully functioning arm with a model having a 91% accuracy rate. </h5>
+             <h3>2. Course Work Projects: </h3> 
+<h5>*Developed logistic regression model with L2 regularization on MNIST dataset for binary classification.
+            <br/>*Built a Regression model for white wine quality dataset to predict the which parameters affect quality. 
+           <br/> *Trained YOLOv4 Tiny for object detection in dynamic marine environments, focusing on lidar and depth vision systems integration for enhance situational awareness.
+        </h5>
+    </div>
+    <h3>You can review all my projects in my GitHub account.Click the below button to view my account</h3>
+    <a href="https://github.com/likevin9911"><button class="btn btn-primary">Click</button></a>
+</div>
+<br/>
+<div class="container col-12" id="contactMe">
+<h3>Contact Me</h3>
+<br/>
+<div class="contactsection">
+
+    <div class="container-fluid">
+        <h4><span><i class="fa-solid fa-phone" style="font-size: 20px;margin:2%"></i>
+        </span>Mobile No : +19897506785</h4>
+        <a href="mailto:kgli@mtu.edu" style="color:gold">
+            <h4><span><i class="fa-solid fa-envelope" style="font-size: 20px;margin:2%"></i></span>Email : kgli@mtu.edu</h4>
+    </a>
+    <a href="https://www.linkedin.com/in/kevin-li-69404a194/" style="color:gold">
+        <h4><span><i class="fa-brands fa-linkedin" style="font-size: 20px;margin:2%"></i></span>linkedin </h4>
+</a>
+    </div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="d-sm-inline d-xs-inline d-md-block d-lg-none d-xl-none">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+        <div class="container">
+         
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+              <a class="nav-link" href="#">Home</a>
+              <a class="nav-link" href="#aboutMe">About</a>
+              <a class="nav-link" href="https://drive.google.com/file/d/1PCBjGw9TkI9tJYhEFiFemEsZwb4f5AqV/view?usp=sharing">Resume</a>
+              <a class="nav-link" href="#myExperience">Experience</a>
+              <a class="nav-link" href="#myProjects">Projects</a>
+               <a class="nav-link" href="#contactMe">Contact Me</a>
+            </div>
+          </div>
+          </div>
+      </nav> 
+
+   
+
+      <div class="backgroundimageContainer d-flex flex-column justify-content-center">
+        <div class="text-center">
+            <div class="name d-flex flex-column justify-content-center">
+                <div class="text-center">
+                <h1>Kevin Li</h1>
+            </div>
+            </div>
+      </div>
+    </div>
+    <br/>
+    <div class="container col-12" id="aboutMe">
+        <h6 style="color: rgba(128, 128, 128, 0.975);">WHO AM I?</h6>
+    </div>
+    <div class="container col-12">
+        <h3>About Me</h3>
+    </div>
+    
+    <div class="container col-12">
+        <p class="para">Hello, my name is Kevin Li. I am currently a first-year graduate student studying Mechanical Engineering at Michigan Technological University, and I plan on graduating early in May 2025. I have always had a keen interest in Robotics, Artificial Intelligence, Machine Learning, Deep Learning, and Data Analysis. So, during the school year, I joined many clubs, learning new things, and working on various projects. I am also trying to solve LeetCode problems and post content related to learning coding on LinkedIn.</p>
+    </div>
+    <br/>
+
+    <div class="container-fluid ">
+        <div class="containersection col-12">
+            <div class="text-center">
+        <p >I am a motivational, passionate, and proactive person. Over the next year, I am looking forward to learning a foreign language (Spanish) and American and I love playing basketball. I hope we can connect and appreciate your time and consideration. Thank you for taking the time to review my resume/website.<p>
+        </div>
+    </div>
+    </div>
+    <br/>
+   
+    <div class="container col-12" >
+        <h6 style="color: rgba(128, 128, 128, 0.975);">WHAT I DO</h6>
+
+    </div>
+    <div class="container col-12">
+        <h3>My Skills</h3>
+    </div>
+    <br/>
+    <div class="myskillssection">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-3">
+                <div class="skillscard " style="box-shadow: 3px 3px 5px 5px rgba(235, 163, 8, 0.659);">
+                    <div class="text-center">
+                    <h3>Communication Skills</h3>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3">
+                <div class="skillscard " style="box-shadow: 3px 3px 5px 5px rgba(209, 8, 235, 0.564);">
+                    <div class="text-center">
+                    <h3>Leadership Skills</h3>
+                </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="skillscard " style="box-shadow: 3px 3px  5px 5px rgba(75, 228, 15, 0.561);">
+                    <div class="text-center">
+                    <h3>Time-Management Skills</h3>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3">
+                <div class="skillscard " style="box-shadow: 3px 3px 5px 5px rgba(235, 8, 61, 0.725)">
+                    <div class="text-center">
+                    <h3>Presentation Skills</h3>
+                </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <br/>
+    <!-- <div class="container col-12">
+        <h3>Techical Skills</h3>
+    </div> -->
+
+    <div class="container col-12">
+        <h6 style="color: rgba(128, 128, 128, 0.975);">WHAT I USE</h6>
+    </div>
+    
+    <div class="container col-12 ">
+        <h3 >Software & Web Technology</h3>
+    </div>
+
+        <div class="webandtechnologysection">
+        <div class="container-fluid">
+            <div class="row">
+             
+                <div class="col-12 col-lg-3 ">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="d-flex flex-column">
+                                    <div class="imagesection">
+                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704098842/pycharm_o71k5w.jpg" class="image"/>
+                                    </div>
+                                    <div class="headingsection">
+                                        <h3>pycharm</h3>
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="parasection">
+                                    <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+          
+
+                <div class="col-12 col-lg-3 ">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="d-flex flex-column">
+                                    <div class="imagesection">
+                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704101559/gb_khqaro.png" class="image"/>
+                                    </div>
+                                    <div class="headingsection">
+                                        <h3>GitHub</h3>
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="parasection">
+                                    <h5>Used Github for several projects to upload my work and also did some workshops.</h5>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <div class="col-12 col-lg-3 ">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="d-flex flex-column">
+                                    <div class="imagesection">
+                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704101962/tb_bxbxg0.png" class="image"/>
+                                    </div>
+                                    <div class="headingsection">
+                                        <h3>Tableau</h3>
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="parasection">
+                                    <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <div class="col-12 col-lg-3 ">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="d-flex flex-column">
+                                    <div class="imagesection">
+                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704102077/ms_kh8nvu.png" class="image"/>
+                                    </div>
+                                    <div class="headingsection">
+                                        <h3>MySQL</h3>
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="parasection">
+                                    <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3 ">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="d-flex flex-column">
+                                        <div class="imagesection">
+                                            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704102686/an_lca3ik.png" class="image"/>
+                                        </div>
+                                        <div class="headingsection">
+                                            <h3>Anaconda</h3>
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="parasection">
+                                        <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                    </div> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                <div class="col-12 col-lg-3 ">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="d-flex flex-column">
+                                    <div class="imagesection">
+                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704102817/co_ietjwj.png" class="image"/>
+                                    </div>
+                                    <div class="headingsection">
+                                        <h3>Colab</h3>
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="parasection">
+                                    <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-3 ">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="d-flex flex-column">
+                                        <div class="imagesection">
+                                            <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704102921/qt_dtapsk.jpg" class="image"/>
+                                        </div>
+                                        <div class="headingsection">
+                                            <h3>Qtcreator</h3>
+                                        </div>
+                                        </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="parasection">
+                                        <h5>Used for classwork and personal projects and did some work related to Data </h5>
+                                    </div> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+            
+                        <div class="col-12 col-lg-3 ">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="d-flex flex-column">
+                                            <div class="imagesection">
+                                                <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704257624/rs_tuhjgs.jpg" class="image"/>
+                                            </div>
+                                            <div class="headingsection">
+                                                <h3>R/R Studio</h3>
+                                            </div>
+                                            </div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <div class="parasection">
+                                            <h5>Used for classwork and personal projects and did some work related to regression analysis.</h5>
+                                        </div> 
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+        
+                            <div class="col-12 col-lg-3 ">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <div class="d-flex flex-column">
+                                                <div class="imagesection">
+                                                    <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704257771/htcss_wdclor.png" class="image"/>
+                                                </div>
+                                                <div class="headingsection">
+                                                    <h3>HTML/CSS</h3>
+                                                </div>
+                                                </div>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="parasection">
+                                                <h5>I Self-taught and started making my websites basic.</h5>
+                                                </div> 
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="col-12 col-lg-3 ">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <div class="d-flex flex-column">
+                                                    <div class="imagesection">
+                                                        <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704258050/gd_qyozyw.jpg" class="image"/>
+                                                    </div>
+                                                    <div class="headingsection">
+                                                        <h3>Google Slides/Google Docs/Google Slides</h3>
+                                                    </div>
+                                                    </div>
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <div class="parasection">
+                                                    <h5>Currently interacting with multiple clubs using Google Suites, with shared drive, spreadsheet, documents, and forms, and making documents on Google Docs and preparing presentation slides on Google Slides.</h5>
+                                                </div> 
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+
+
+            
+
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="container col-12">
+        <h3>Programming Languages</h3>
+    </div>
+    <br/>
+     <div class="programminglanguagessection">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>C Language</h3>
+            </div>
+        </div>
+        </div> 
+       
+       
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>C++ Language</h3>
+            </div>
+        </div>
+        </div> 
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>Python Language</h3>
+            </div>
+        </div>
+        </div> 
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>R Language</h3>
+            </div>
+        </div>
+        </div> 
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>SQL</h3>
+            </div>
+        </div>
+        </div> 
+
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>Java Language</h3>
+            </div>
+        </div>
+        </div> 
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="plcard">
+                <div class="text-center">
+                <h3>Matlab </h3>
+            </div>
+        </div>
+        </div>   
+       </div>
+    </div>
+</div>
+ <br/>
+<div class="container col-12">
+    <h3>Favourite Quote</h3>
+</div>
+<br/>
+    <div class="picture">
+        <!-- <img src="https://res.cloudinary.com/dcyd67xgz/image/upload/v1704264383/es_bmwuw4.jpg"/> -->
+</div>
+ <br/>
+ <div class="container col-12" id="myExperience">
+    <h6 style="color: rgba(128, 128, 128, 0.975);">PREVIOUS EXPERIENCE</h6>
+</div>
+ <div class="container col-12" >
+    <h3>Experience</h3>
+ </div>
+ <div class="experiencesection">
+
+    <div class="container-fluid">
+        <h3>Marangoni Surfer - Bio Inspired Design </h3>
+        <h4 >Project Manager Janurary 2023 - August 2023</h4>
+         <h5>   *Developed and delivered bio-inspired robotic surfer using Arduino, C++, and Python to inspire STEM interest. 
+            <br/>
+            *Designed and executed robotics projects, fostering hands-on learning experiences. 
+            <br/>
+            *Instructed programming concepts and techniques to a diverse team of 10. 
+            <br/>
+            *Led development of bio-inspired robotic surfer, resulting in a 90% increase in team efficiency.
+            </h5>
+    </div>
+</div>
+<br/>
+<div class="container col-12" id="myProjects">
+    <h3>Projects</h3>
+</div>
+<br/>
+<div class="projectssection">
+    <div class="container-fluid">
+        
+        
+        <h3> 1. Robotic Arm – AI ML & DL. </h3>
+        <h5>*Built a robotic arm to help people pick objects in shopping malls, warehouses, and various industries.  
+        <br/>*Designed the arm, built a CNN model, and programmed for mechanical movement. 
+       <br/>*Developed arm with rover structure, and used IOT and AI & ML, trained on various data sets. 
+       <br/>*Successfully built a fully functioning arm with a model having a 91% accuracy rate. </h5>
+        <h3>2. Course Work Projects: </h3> 
+<h5>*Developed logistic regression model with L2 regularization on MNIST dataset for binary classification.
+       <br/>*Built a Regression model for white wine quality dataset to predict the which parameters affect quality. 
+      <br/> *Trained YOLOv4 Tiny for object detection in dynamic marine environments, focusing on lidar and depth vision systems integration for enhance situational awareness.
+   </h5>
+</div>
+<h3>You can review all my projects in my GitHub account.Click the below button to view my account</h3>
+    <a href="https://github.com/likevin9911"><button class="btn btn-primary">Click</button></a>
+</div>
+<br/>
+<div class="container col-12" id="contactMe">
+<h3>Contact Me</h3>
+<br/>
+<div class="contactsection">
+
+    <div class="container-fluid">
+        <h4><span><i class="fa-solid fa-phone" style="font-size: 20px;margin:2%"></i>
+        </span>Mobile No : +19897506785</h4>
+        <a href="mailto:kgli@mtu.edu" style="color:gold">
+            <h4><span><i class="fa-solid fa-envelope" style="font-size: 20px;margin:2%"></i></span>Email : kgli@mtu.edu</h4>
+        </a>  
+        <a href="https://www.linkedin.com/in/kevin-li-69404a194/" style="color:gold">
+            <h4><span><i class="fa-brands fa-linkedin" style="font-size: 20px;margin:2%"></i></span>linkedin </h4>
+    </a> 
+    </div>
+</div>
+</div>
+</div>
+
+</body>
+
+</html>
